@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Producto</title>
+</head>
+<body>
+    <h1>Detalle del producto</h1>
+    <ul>
+        <li>Número: <span th:text="${objeto.numero}"></span></li>
+        <li>Concepto: <span th:text="${objeto.concepto}"></span></li>
+        <li>Importe: <span th:text="${objeto.importe}"></span> €</li>
+    </ul>
+</body>
+</html>

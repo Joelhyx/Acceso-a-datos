@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de productos</title>
+</head>
+<body>
+    <h1>Listado de productos</h1>
+
+    <ul th:each="producto : ${productos}">
+        <li th:text="${producto.numero}"></li>
+        <li th:text="${producto.concepto}"></li>
+        <li th:text="${producto.importe}"></li>
+    </ul>
+
+    <!-- Versión alternativa en tabla (opcional) -->
+    <table border="1">
+        <thead>
+            <tr><th>Nº</th><th>Concepto</th><th>Importe</th></tr>
+        </thead>
+        <tbody>
+            <tr th:each="p : ${productos}">
+                <td th:text="${p.numero}"></td>
+                <td th:text="${p.concepto}"></td>
+                <td th:text="${p.importe}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
