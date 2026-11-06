@@ -65,27 +65,28 @@ public class JavaApplication3 {
     public static void contarVocalesFileReader(File f) throws IOException {
 
         int[] contador = new int[5];
-
-        FileReader fil = new FileReader(f);
-
-        int letra = fil.read();
-
-        while (letra != -1) {
-
-            char c = Character.toLowerCase((char) letra);
-
-            switch (c) {
-                case 'a': contador[0]++; break;
-                case 'e': contador[1]++; break;
-                case 'i': contador[2]++; break;
-                case 'o': contador[3]++; break;
-                case 'u': contador[4]++; break;
+        // TRY WITH RESOURCES
+        // LIBERA OBJETOS AUTOMATICAMENTE
+        try( FileReader fil = new FileReader(f); )
+        {
+            int letra = fil.read();
+            while (letra != -1) {
+                char c = Character.toLowerCase((char) letra);
+                switch (c) {
+                    case 'a': contador[0]++; break;
+                    case 'e': contador[1]++; break;
+                    case 'i': contador[2]++; break;
+                    case 'o': contador[3]++; break;
+                    case 'u': contador[4]++; break;
+                }
+                letra = fil.read();
             }
-
-            letra = fil.read();
         }
-
-        fil.close();
+        catch( Exception ex)
+        {
+            ex = ex;
+        }
+        // fil.close();
 
         System.out.println("--- Conteo de vocales (FileReader) ---");
         mostrarConteo(contador);
@@ -95,6 +96,7 @@ public class JavaApplication3 {
 
         int[] contador = new int[5]; // posiciones: a, e, i, o, u
 
+        // ToDo :: TRY - WITH - RESOURCES
         FileReader fil = new FileReader(f);
         BufferedReader brf = new BufferedReader(fil);
 
