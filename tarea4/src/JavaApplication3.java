@@ -71,6 +71,7 @@ public class JavaApplication3 {
 
         int[] contador = new int[5]; // a, e, i, o, u
 
+        // TRY - WITH - RESOURCES
         try (FileReader fil = new FileReader(f);
                 BufferedReader brf = new BufferedReader(fil)) {
 
@@ -116,6 +117,7 @@ public class JavaApplication3 {
         int numeroLinea = 0;
         int totalApariciones = 0;
 
+        // TRY - WITH - RESOURCES
         try (FileReader fil = new FileReader(f);
                 BufferedReader brf = new BufferedReader(fil)) {
 
